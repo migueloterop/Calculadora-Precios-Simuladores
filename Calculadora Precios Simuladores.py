@@ -46,20 +46,6 @@ for i in range(len(subtotal_for)):
     agregado_for.append(sub_prob)
     sub_prob=0
 
-
-
-
-
-
-print("Tramos:", tramos)
-print("Precios Assessment:", ass_pricing)
-print("Subtotal Assessment", subtotal_ass)
-print("AGregado Assessment", agregado_ass)
-print()
-print("Precios Formación:", for_pricing)
-print("Subtotal Formación", subtotal_for)
-print("AGregado Formación", agregado_for)
-
 #Calculadora Assessment
 def calculadora_ass(users:int):
   if users<50:
@@ -95,29 +81,6 @@ def calculadora_for(users:int):
     base=agregado_for[len(agregado_for)-1]
     resto=(users-1000)*3
     return base+resto
-
-tipo = int(input('Para calcular precio de ASSESSMENT escribe "1", para FORMACIÓN escribe "2":'))
-users=int(input("Introduce el número de personas: "))
-entrenamiento=7000
-
-if tipo==1:
-  precio=calculadora_ass(users)
-  print()
-  print(f"Precio: {precio}€")
-  print(f"Precio por usuario: {precio/users:.2f} €/usuario")
-  print(f"Entrenamiento: {entrenamiento}€")
-  print()
-  print(f"Precio final: {precio+entrenamiento}€")
-
-if tipo==2:
-  precio=calculadora_for(users)
-  print()
-  print(f"Precio (mensual): {precio}€")
-  print(f"Precio por usuario: {precio/users:.2f} €/usuario")
-  print(f"Entrenamiento: {entrenamiento}€")
-  print()
-  print(f"Precio primer mes: {precio+entrenamiento}€")
-
 
 # --- INTERFAZ STREAMLIT ---
 import streamlit as st
