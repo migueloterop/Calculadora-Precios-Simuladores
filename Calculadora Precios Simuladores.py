@@ -117,3 +117,31 @@ if tipo==2:
   print(f"Entrenamiento: {entrenamiento}€")
   print()
   print(f"Precio primer mes: {precio+entrenamiento}€")
+
+
+# --- INTERFAZ STREAMLIT ---
+import streamlit as st
+st.title("Calculadora de Precios")
+
+tipo = st.selectbox(
+    "Selecciona tipo de cálculo",
+    ("ASSESSMENT", "FORMACIÓN")
+)
+
+users = st.number_input("Introduce el número de personas", min_value=1, step=1)
+
+entrenamiento = 7000
+
+if st.button("Calcular"):
+    if tipo == "ASSESSMENT":
+        precio = calculadora_ass(users)
+        st.write(f"Precio: {precio}€")
+        st.write(f"Precio por usuario: {precio/users:.2f} €/usuario")
+        st.write(f"Entrenamiento: {entrenamiento}€")
+        st.write(f"Precio final: {precio+entrenamiento}€")
+    else:
+        precio = calculadora_for(users)
+        st.write(f"Precio (mensual): {precio}€")
+        st.write(f"Precio por usuario: {precio/users:.2f} €/usuario")
+        st.write(f"Entrenamiento: {entrenamiento}€")
+        st.write(f"Precio primer mes: {precio+entrenamiento}€")
